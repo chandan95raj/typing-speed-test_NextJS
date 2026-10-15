@@ -26,6 +26,7 @@ export default function Footer() {
         <p>
           &copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
         </p>
+        <p className="developer-credit">Developed by Chandan Raj</p>
       </div>
     </footer>
   );

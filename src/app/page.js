@@ -11,12 +11,12 @@ export const metadata = {
 };
 
 const features = [
-  ["Real-time results", "See your WPM, accuracy and timer update as you type."],
-  ["1, 3, 5 and 10 minute tests", "Pick the length that fits your goal, from a quick check to an endurance run."],
-  ["Three difficulty levels", "Easy, medium and hard English passages, including punctuation and numbers."],
-  ["Progress tracking", "Personal best, charts, streaks and achievements saved in your browser."],
-  ["Daily challenge", "A new shared passage every day to keep your streak going."],
-  ["No sign-up", "Start instantly. Your data never leaves your device."],
+  ["⚡", "Real-time results", "See your WPM, accuracy and timer update as you type."],
+  ["⏱️", "Your pace, your test", "Pick 1, 3, 5 or 10 minutes, from a quick check to an endurance run."],
+  ["🎯", "Find your level", "Choose easy, medium or hard passages with punctuation and numbers."],
+  ["📈", "See your progress", "Personal bests, charts, streaks and achievements saved in your browser."],
+  ["🔥", "Daily challenge", "Take on a fresh shared passage every day and keep your streak going."],
+  ["🔒", "Private by design", "Start instantly. Your results stay on your device."],
 ];
 
 const faqs = [
@@ -51,23 +51,30 @@ export default function HomePage() {
   return (
     <div>
       <JsonLd data={jsonLd} />
-      <header className="page-head">
-        <h1>Test Your Typing Speed</h1>
+      <header className="home-hero">
+        <div className="eyebrow">⌨ &nbsp; Your next personal best starts here</div>
+        <h1>Find your flow.<br /><span>Feel the speed.</span></h1>
         <p className="lead">
-          Start typing below to measure your words per minute (WPM) and accuracy. Free,
-          fast and no registration required.
+          A better way to measure your typing speed, build accuracy and watch your progress grow.
         </p>
+        <div className="trust-row" aria-label="Service highlights">
+          <span>✦ Free to use</span>
+          <span>⌁ No sign-up</span>
+          <span>◉ Progress saved locally</span>
+        </div>
       </header>
 
       <TypingTest initialMinutes={1} />
 
       <section className="section">
         <h2>Why use SpeedType?</h2>
+        <p className="muted">Everything you need to make every practice session count.</p>
         <div className="grid">
-          {features.map(([title, text]) => (
-            <div className="card" key={title}>
+          {features.map(([icon, title, text]) => (
+            <div className="card feature-card" key={title}>
+              <div className="feature-icon" aria-hidden="true">{icon}</div>
               <h3>{title}</h3>
-              <p className="muted" style={{ margin: 0 }}>{text}</p>
+              <p className="muted">{text}</p>
             </div>
           ))}
         </div>
@@ -78,8 +85,11 @@ export default function HomePage() {
         <div className="grid">
           {PAGES.map((p) => (
             <Link key={p.href} href={p.href} className="link-card">
-              <strong>{p.label}</strong>
-              <span>{p.description}</span>
+              <span>
+                <strong>{p.label}</strong>
+                {p.description}
+              </span>
+              <span className="link-arrow" aria-hidden="true">↗</span>
             </Link>
           ))}
         </div>
