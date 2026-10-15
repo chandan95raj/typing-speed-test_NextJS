@@ -11,12 +11,12 @@ export const metadata = {
 };
 
 const features = [
-  ["⚡", "Real-time results", "See your WPM, accuracy and timer update as you type."],
-  ["⏱️", "Your pace, your test", "Pick 1, 3, 5 or 10 minutes, from a quick check to an endurance run."],
-  ["🎯", "Find your level", "Choose easy, medium or hard passages with punctuation and numbers."],
-  ["📈", "See your progress", "Personal bests, charts, streaks and achievements saved in your browser."],
-  ["🔥", "Daily challenge", "Take on a fresh shared passage every day and keep your streak going."],
-  ["🔒", "Private by design", "Start instantly. Your results stay on your device."],
+  ["↗", "Real-time results", "See your WPM, accuracy and timer update as you type."],
+  ["◷", "Your pace, your test", "Pick 1, 3, 5 or 10 minutes, from a quick check to an endurance run."],
+  ["◎", "Find your level", "Choose easy, medium or hard passages with punctuation and numbers."],
+  ["▥", "See your progress", "Personal bests, charts, streaks and achievements saved in your browser."],
+  ["✳", "Daily challenge", "Take on a fresh shared passage every day and keep your streak going."],
+  ["◉", "Private by design", "Start instantly. Your results stay on your device."],
 ];
 
 const faqs = [
@@ -52,23 +52,49 @@ export default function HomePage() {
     <div>
       <JsonLd data={jsonLd} />
       <header className="home-hero">
-        <div className="eyebrow">⌨ &nbsp; Your next personal best starts here</div>
-        <h1>Find your flow.<br /><span>Feel the speed.</span></h1>
-        <p className="lead">
-          A better way to measure your typing speed, build accuracy and watch your progress grow.
-        </p>
-        <div className="trust-row" aria-label="Service highlights">
-          <span>✦ Free to use</span>
-          <span>⌁ No sign-up</span>
-          <span>◉ Progress saved locally</span>
+        <div className="hero-copy">
+          <div className="eyebrow"><span className="eyebrow-dot" /> A better kind of practice</div>
+          <h1>Less hesitation.<br /><span>More flow.</span></h1>
+          <p className="lead">
+            Find your real typing speed, build accuracy, and make every minute at the keyboard count.
+          </p>
+          <a className="btn btn-primary hero-cta" href="#typing-test">
+            Start a free test <span aria-hidden="true">↓</span>
+          </a>
+          <div className="trust-row" aria-label="Service highlights">
+            <span><b aria-hidden="true">✓</b> Free, always</span>
+            <span><b aria-hidden="true">✓</b> No account needed</span>
+            <span><b aria-hidden="true">✓</b> Private by design</span>
+          </div>
         </div>
+        <aside className="hero-note" aria-label="A little practice goes a long way">
+          <div className="hero-note-top"><span className="hero-note-icon">⌘</span><span>YOUR PRACTICE SPACE</span></div>
+          <div className="key-art" aria-hidden="true">
+            <span>Q</span><span>W</span><span>E</span><span>R</span>
+            <span>A</span><span>S</span><span>D</span><span>F</span>
+            <span className="key-space" />
+          </div>
+          <p>Small sessions.<br /><strong>Big progress.</strong></p>
+          <span className="hero-note-caption">One test at a time.</span>
+        </aside>
       </header>
 
-      <TypingTest initialMinutes={1} />
+      <div id="typing-test" className="test-shell">
+        <div className="test-intro">
+          <div>
+            <span className="section-kicker">THE QUICK TEST</span>
+            <h2>Ready when you are.</h2>
+          </div>
+          <span className="live-pill"><span /> Live feedback</span>
+        </div>
+        <TypingTest initialMinutes={1} />
+      </div>
 
       <section className="section">
-        <h2>Why use SpeedType?</h2>
-        <p className="muted">Everything you need to make every practice session count.</p>
+        <div className="section-heading">
+          <div><span className="section-kicker">MADE FOR YOUR MOMENTUM</span><h2>Practice that adds up.</h2></div>
+          <p className="muted">No distractions. Just you, the words, and a little progress each day.</p>
+        </div>
         <div className="grid">
           {features.map(([icon, title, text]) => (
             <div className="card feature-card" key={title}>
@@ -81,7 +107,9 @@ export default function HomePage() {
       </section>
 
       <section className="section">
-        <h2>Explore all tests and tools</h2>
+        <div className="section-heading">
+          <div><span className="section-kicker">PICK YOUR NEXT STEP</span><h2>A little more to explore.</h2></div>
+        </div>
         <div className="grid">
           {PAGES.map((p) => (
             <Link key={p.href} href={p.href} className="link-card">

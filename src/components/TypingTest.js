@@ -277,7 +277,7 @@ export default function TypingTest({
   const timeText = durationSec ? formatTime(durationSec - seconds) : formatTime(Math.floor(seconds));
 
   return (
-    <section className="card" aria-label="Typing test">
+    <section className="card typing-card" aria-label="Typing test">
       {mode === "normal" && (
         <div className="controls">
           <div className="control-group">
